@@ -3,7 +3,7 @@ from pandas import read_csv, DataFrame
 import matplotlib.pyplot as plt
 
 
-def getData(file_path):
+def getData(file_path: str) -> DataFrame:
     """
     reads data from csv
     """
@@ -14,7 +14,7 @@ def getData(file_path):
     return data
 
 
-def evaluate(e: list, p: list, mil: list, step: int):
+def evaluate(e: list, p: list, mil: list, step: int) -> float:
     """
     evaluates coefficient of determination
     and plots the regression line
@@ -37,7 +37,7 @@ def evaluate(e: list, p: list, mil: list, step: int):
     return r2
 
 
-def train(data: DataFrame, lr: float, epochs: int):
+def train(data: DataFrame, lr: float, epochs: int) -> None:
     """
     Training function
     _theta0: lr*1/m*summation(i=0 to m-1)(estimated(mil[i]) - price[i])
@@ -71,6 +71,9 @@ def train(data: DataFrame, lr: float, epochs: int):
 
 
 def main():
+    """
+    train linear regression model
+    """
     parser = ArgumentParser()
     parser.add_argument(
         "-f",
